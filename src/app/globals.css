@@ -3,19 +3,121 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #AAB396;
+  --lowmiddle: #674636;
+  --middle: #F7EED3;
+  --highmiddle: #FED8B1;
+  --foreground: #000000;
 }
-
+/*
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #a78989;
     --foreground: #ededed;
   }
-}
+}*/
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+h2 {
+  color: var(--lowmiddle);
+}
+
+.card {
+  background: var(--middle);
+  color: var(--foreground);
+  border-radius: 0.8rem;
+  box-shadow: 10 5 1rem rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  margin: 1rem;
+  width: 26vw;
+  height: 8vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info{
+  background: var(--middle);
+}
+
+.search-container {
+    --background: var(--lowmiddle);
+    --foreground: var(--foreground);
+  
+    background: var(--background);
+    color: var(--foreground);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    margin: 1rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+
+  }
+  
+  .search-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--middle)
+  }
+  
+  .search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    background: var(--middle);
+  }
+  .search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    background: var(--middle);
+    color: var(--foreground);
+}
+
+/* Change the color of the placeholder text */
+.search-bar::placeholder {
+    color: #4b4b4b93; /* Change this to your desired color */
+}
+  
+.results-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  transition: all 0.5s ease-in-out;
+
+}
+
+.max-price {
+  color: var(--middle);
+  font-size: medium;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+  }
+}
+

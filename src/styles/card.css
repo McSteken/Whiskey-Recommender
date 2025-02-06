@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* set background and foreground variables */
+  
+.card {
+  --background: #A67B5B;
+  --foreground: #FED8B1;
+
+  background: var(--background);
+  color: var(--foreground);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
