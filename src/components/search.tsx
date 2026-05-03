@@ -97,26 +97,29 @@ const Search: React.FC = () => {
         setHasSelected(true); // Set hasSelected to true after selecting a whiskey
         setLoading(true); // Set loading to true before fetching recommendations
 
-        const priceToSend = maxPrice === 10000 ? Infinity : maxPrice;
+        const priceToSend = maxPrice === 10000 ? Number.MAX_SAFE_INTEGER : maxPrice;
 
-        // Send the selected whiskey to the API endpoint
-        const response = await fetch('http://localhost:5000/predict', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ index: originalIndex, maxPrice: priceToSend }),
-        });
+        try {
+            const response = await fetch('/api/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ index: originalIndex, maxPrice: priceToSend }),
+            });
 
-        if (!response.ok) {
-            console.error('Failed to fetch recommendations');
-            setLoading(false); // Set loading to false if fetching fails
-            return;
+            if (!response.ok) {
+                console.error('Failed to fetch recommendations');
+                return;
+            }
+
+            const recommendations = await response.json();
+            setRecommendations(recommendations);
+        } catch (err) {
+            console.error('Failed to fetch recommendations', err);
+        } finally {
+            setLoading(false);
         }
-
-        const recommendations = await response.json();
-        setRecommendations(recommendations);
-        setLoading(false); // Set loading to false after fetching recommendations
     };
 
     return (
