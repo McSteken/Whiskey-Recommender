@@ -43,12 +43,12 @@ const Search: React.FC = () => {
             console.log(parsedData.data); // Log the fetched data
 
             // Map the parsed data to the desired structure
-            const mappedData = parsedData.data.map((item: any) => ({
+            const mappedData = (parsedData.data as Record<string, string>[]).map((item) => ({
                 name: item.name || "",
                 price: item.price || "",
                 rating: item.rating || "",
                 category: item.category || "",
-                similarity_score: item.similarity_score || 0,
+                similarity_score: Number(item.similarity_score) || 0,
                 preprocessed_description: item.preprocessed_description || ""
             }));
 

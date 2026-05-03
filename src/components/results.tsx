@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "@/components/card";
-import Loading from "@/components/loading/loading";
 
 interface WhiskeyData {
     name: string;

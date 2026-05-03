@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Card from "@/components/card";
-import Results from "@/components/results";
 import Search from "@/components/search";
 
 export default function Home() {

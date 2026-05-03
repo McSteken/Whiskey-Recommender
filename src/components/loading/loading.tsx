@@ -1,19 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Spinner from './spinner'
 
-export default function loading() {
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 3000);
-        return () => {
-            clearTimeout(timer);
-        }
-    }, []);
+export default function Loading() {
   return (
-    <div className = "spinner">
-        <Spinner />
-    </div>  )
+    <div className="spinner">
+      <Spinner />
+    </div>
+  )
 }
